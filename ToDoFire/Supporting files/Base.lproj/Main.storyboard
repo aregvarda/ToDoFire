@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ToDoFire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +66,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                                 <state key="normal" title="LOGIN"/>
                                                 <connections>
+                                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q0U-pr-JBY"/>
                                                     <segue destination="AHO-ZF-jMK" kind="show" identifier="tasksSegue" id="g8k-4X-1r4"/>
                                                 </connections>
                                             </button>
@@ -73,6 +74,9 @@
                                                 <rect key="frame" x="0.0" y="67" width="194" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="REGISTER"/>
+                                                <connections>
+                                                    <action selector="registerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Dk-Hm-USP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -100,6 +104,11 @@
                             <constraint firstItem="lit-R3-5og" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dYe-Qb-bh0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="sZD-mL-cgH" id="PUy-OS-uE8"/>
+                        <outlet property="passwordTextField" destination="u1B-Fq-CTX" id="Q7D-WD-oPh"/>
+                        <outlet property="warnLabel" destination="F0X-2v-QYD" id="ia5-Kz-Wkl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,8 +152,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TASKS" id="de4-oo-8kd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vcb-Zz-bKx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vcb-Zz-bKx">
+                            <connections>
+                                <action selector="addTapped:" destination="hP7-di-coy" id="ncl-Zt-O4L"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FYt-s1-1KP" id="AfT-fQ-S96"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2LF-o7-wfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
