@@ -67,7 +67,6 @@
                                                 <state key="normal" title="LOGIN"/>
                                                 <connections>
                                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q0U-pr-JBY"/>
-                                                    <segue destination="AHO-ZF-jMK" kind="show" identifier="tasksSegue" id="g8k-4X-1r4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBM-hf-p5E">
@@ -108,6 +107,7 @@
                         <outlet property="emailTextField" destination="sZD-mL-cgH" id="PUy-OS-uE8"/>
                         <outlet property="passwordTextField" destination="u1B-Fq-CTX" id="Q7D-WD-oPh"/>
                         <outlet property="warnLabel" destination="F0X-2v-QYD" id="ia5-Kz-Wkl"/>
+                        <segue destination="AHO-ZF-jMK" kind="show" identifier="tasksSegue" id="UfB-E8-6cj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
