@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		C844473B27490E82001A34AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C844473927490E82001A34AF /* LaunchScreen.storyboard */; };
 		C8444743274928EE001A34AF /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8444742274928EE001A34AF /* TasksViewController.swift */; };
 		C844474A2749341B001A34AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84447492749341B001A34AF /* GoogleService-Info.plist */; };
+		C844474E27497667001A34AF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844474D27497667001A34AF /* Task.swift */; };
+		C844475027497679001A34AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844474F27497679001A34AF /* User.swift */; };
 		E32748F8B0FF3F2DFAAF3270 /* Pods_ToDoFire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAC775DACE3132E8469B9F2 /* Pods_ToDoFire.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		C844473C27490E82001A34AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8444742274928EE001A34AF /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		C84447492749341B001A34AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C844474D27497667001A34AF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		C844474F27497679001A34AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CFAC775DACE3132E8469B9F2 /* Pods_ToDoFire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoFire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31FDBED80E8C4C0C6BA25A1 /* Pods-ToDoFire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoFire.release.xcconfig"; path = "Target Support Files/Pods-ToDoFire/Pods-ToDoFire.release.xcconfig"; sourceTree = "<group>"; };
 		ED45CFEE787A5E4D0A28FCB8 /* Pods-ToDoFire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoFire.debug.xcconfig"; path = "Target Support Files/Pods-ToDoFire/Pods-ToDoFire.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,7 +56,6 @@
 				ED45CFEE787A5E4D0A28FCB8 /* Pods-ToDoFire.debug.xcconfig */,
 				D31FDBED80E8C4C0C6BA25A1 /* Pods-ToDoFire.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,6 +80,7 @@
 		C844472D27490E7F001A34AF /* ToDoFire */ = {
 			isa = PBXGroup;
 			children = (
+				C84447512749768B001A34AF /* Models */,
 				C844474627492988001A34AF /* Controllers */,
 				C844474527492955001A34AF /* Supporting files */,
 			);
@@ -104,6 +108,15 @@
 				C8444742274928EE001A34AF /* TasksViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C84447512749768B001A34AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C844474D27497667001A34AF /* Task.swift */,
+				C844474F27497679001A34AF /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E05F40450EB78E0E7D2D3F75 /* Frameworks */ = {
@@ -231,6 +244,8 @@
 			files = (
 				C844473327490E7F001A34AF /* LoginViewController.swift in Sources */,
 				C8444743274928EE001A34AF /* TasksViewController.swift in Sources */,
+				C844475027497679001A34AF /* User.swift in Sources */,
+				C844474E27497667001A34AF /* Task.swift in Sources */,
 				C844472F27490E7F001A34AF /* AppDelegate.swift in Sources */,
 				C844473127490E7F001A34AF /* SceneDelegate.swift in Sources */,
 			);

@@ -152,6 +152,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TASKS" id="de4-oo-8kd">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="laB-kS-dud">
+                            <connections>
+                                <action selector="signOutTapped:" destination="hP7-di-coy" id="dPY-D7-u0T"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vcb-Zz-bKx">
                             <connections>
                                 <action selector="addTapped:" destination="hP7-di-coy" id="ncl-Zt-O4L"/>

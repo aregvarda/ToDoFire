@@ -11,13 +11,16 @@ import Firebase
 class LoginViewController: UIViewController {
     
     let segueIdentifier = "tasksSegue"
+    var ref: DatabaseReference!
     
     @IBOutlet weak var warnLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference(withPath: "users")
         
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         
@@ -29,6 +32,13 @@ class LoginViewController: UIViewController {
                 self?.performSegue(withIdentifier: (self?.segueIdentifier)!, sender: nil)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        emailTextField.text = ""
+        passwordTextField.text = ""
     }
     
     @objc func kbDidShow(notification: Notification) {
@@ -77,19 +87,19 @@ class LoginViewController: UIViewController {
             displayWarningLabel(withText: "Info is incorrect")
             return
         }
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            
-            if error == nil {
-                if user != nil {
-                    
-                } else {
-                    print("user is not created")
-                }
-            } else {
+        
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
+            guard error == nil, user != nil else {
+                self?.displayWarningLabel(withText: "Registration was incorrect")
                 print(error!.localizedDescription)
+                return
             }
+            
+            guard let user = user else { return }
+            let userRef = self?.ref.child(user.user.uid)
+            userRef?.setValue(["email": user.user.email])
         }
     }
-    
 }
+
 
