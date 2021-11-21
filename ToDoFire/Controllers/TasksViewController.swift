@@ -16,7 +16,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         guard let currentUser = Auth.auth().currentUser else { return }
         user = User(user: currentUser)
         ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
@@ -24,14 +24,13 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        ref.observe(.value) { [weak self] (snapshot) in
-            var _tasks = Array<Task>()
+        ref.observe(.value) { [weak self] snapshot in
+            var tasks = [Task]()
             for item in snapshot.children {
-                let task = Task(snapshot: item as! DataSnapshot)
-                _tasks.append(task)
+                            guard let snapshot = item as? DataSnapshot, let task = Task(snapshot: snapshot) else { continue }
+                            tasks.append(task)
             }
-            self?.tasks = _tasks
+            self?.tasks = tasks
             self?.tableView.reloadData()
         }
     }
@@ -85,21 +84,20 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
         
-        let alertController = UIAlertController(title: "New Task", message: "Add new task", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "New task", message: "Add new task", preferredStyle: .alert)
         alertController.addTextField()
-        let save = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
-            
-            guard let textField = alertController.textFields?.first, textField.text != "" else { return }
-            
-            let task = Task(title: textField.text!, userId: (self?.user.uid)!)
+        let save = UIAlertAction(title: "Save", style: .default) { [weak self] action in
+                    guard let textField = alertController.textFields?.first,
+                                let text = textField.text,
+                                let uid = self?.user.uid else { return }
+            let task = Task(title: text, userId: uid)
             let taskRef = self?.ref.child(task.title.lowercased())
-            taskRef?.setValue(task.convertToDictionary)
+            taskRef?.setValue(task.convertToDictionary())
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(save)
         alertController.addAction(cancel)
-        
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
     @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
         do {
