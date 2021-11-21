@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C832859F274A906D00FF8840 /* TDLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C832859E274A906D00FF8840 /* TDLConstants.swift */; };
 		C844472F27490E7F001A34AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844472E27490E7F001A34AF /* AppDelegate.swift */; };
 		C844473127490E7F001A34AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844473027490E7F001A34AF /* SceneDelegate.swift */; };
 		C844473327490E7F001A34AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844473227490E7F001A34AF /* LoginViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C832859E274A906D00FF8840 /* TDLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLConstants.swift; sourceTree = "<group>"; };
 		C844472B27490E7F001A34AF /* ToDoFire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoFire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C844472E27490E7F001A34AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C844473027490E7F001A34AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C832859D274A905300FF8840 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C832859E274A906D00FF8840 /* TDLConstants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C844472227490E7F001A34AF = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		C844472D27490E7F001A34AF /* ToDoFire */ = {
 			isa = PBXGroup;
 			children = (
+				C832859D274A905300FF8840 /* Helpers */,
 				C84447512749768B001A34AF /* Models */,
 				C844474627492988001A34AF /* Controllers */,
 				C844474527492955001A34AF /* Supporting files */,
@@ -244,6 +255,7 @@
 			files = (
 				C844473327490E7F001A34AF /* LoginViewController.swift in Sources */,
 				C8444743274928EE001A34AF /* TasksViewController.swift in Sources */,
+				C832859F274A906D00FF8840 /* TDLConstants.swift in Sources */,
 				C844475027497679001A34AF /* User.swift in Sources */,
 				C844474E27497667001A34AF /* Task.swift in Sources */,
 				C844472F27490E7F001A34AF /* AppDelegate.swift in Sources */,
